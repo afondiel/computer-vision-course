@@ -21,8 +21,7 @@ ResNet’s residual connections unlocked the potential of the extreme depth, pro
 
 ## ResNet Architecture
 
-- A Residual Block. Source: ResNet Paper
-![residual](https://huggingface.co/datasets/hf-vision/course-assets/blob/main/ResnetBlock.png)
+![resnet_building_block](https://huggingface.co/datasets/hf-vision/course-assets/resolve/main/ResnetBlock.png)
 
 ResNets introduce a concept called residual learning, which allows the network to learn the residuals (i.e., the difference between the learned representation and the input), instead of trying to directly map inputs to outputs. This is achieved through skip connections (or shortcut connections). 
 
@@ -34,13 +33,6 @@ Let's break this down:
 In a typical neural network layer, we aim to learn a mapping F(x), where x is the input and F is the transformation the network applies. Without residual learning, the transformation at a layer is: y = F(x). In ResNets, instead of learning F(x) directly, the network is designed to learn the residual R(x), where: R(x) = F(x) − x. Thus, the transformation in a residual block is written as: y = F(x) + x.
 
 Here, x is the input to the residual block, and F(x) is the output of the block's stacked layers (usually convolutions, batch normalization, and ReLU). The identity mapping x is directly added to the output of F(x) (through the skip connection). So the block is learning the residual R(x) = F(x), and the final output is F(x) + x. This residual function is easier to optimize compared to the original mapping. If the optimal transformation is close to the identity (i.e., no transformation is needed), the network can easily set F(x) ≈ 0 to pass through the input as it is.
-
-
-
-* The building block of ResNet can be shown in the picture, source ResNet paper. 
-
-![resnet_building_block](https://huggingface.co/datasets/hf-vision/course-assets/resolve/main/ResnetBlock.png)
-
 
 #### 2. Learning Residuals and Gradient Flow
 
